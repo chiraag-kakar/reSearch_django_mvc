@@ -1,37 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Search Results</title>
-</head>
-<body>
+{% extends 'research/layout.html' %}
+
+{% block style %}
 <style>
     body {
-    background-color: rgb(130, 194, 175);
     text-align: center;
     margin: 20px;
     }
+    .color-g{
+        color: #19d642;
+    }
 </style>
+{% endblock %}
 
+{% block content %}
 <h1> Below is the search result for "{{ search }}" </h1>
 <p> The word exist : {{ flag }}</p>
  {% if flag %}
-    <div class='result'>
-
-    <ul class="result" style="list-style-type:none;">
-    {% for i in result %}
-    {% for item in i %}
-    <li>Document ID = {{ item.document_index }}</li>
-    <li>Keyword = {{ item.words }}</li>
-    <li>Frequency = {{ item.frequency }}</li>
-    {% endfor %}
-
-    {% endfor %}
-    </ul>
-
+    <div class='result container-fluid'>
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col" class="color-g">Document ID</th>
+              <th scope="col" class="color-g">Keyword</th>
+              <th scope="col" class="color-g">Frequency</th>
+            </tr>
+        </thead>
+        {% for i in result %}
+        {% for item in i %}
+        <tbody>
+            <tr>
+              <td class="color-g">{{ item.document_index }}</td>
+              <td class="color-g">{{ item.document_index }}</td>
+              <td class="color-g">{{ item.document_index }}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+        {% endfor %}
+    </table>
     </div>
 {% endif %}
 
-<input type=button value="Previous Page" onClick="javascript:history.go(-1);">
-</body>
-
-</html>
+<a class="btn btn-outline-primary btn-sm" type=button href="/api/v1/">Home</a>
+{% endblock %}

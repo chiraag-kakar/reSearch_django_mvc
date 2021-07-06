@@ -1,24 +1,31 @@
+{% extends 'research/layout.html' %}
+
+{% block style %}
 <style>
-	body {
-    background-color: rgb(130, 194, 175);
-	text-align: center;
-	margin: 20px;
+	.form-control{
+    border-radius: 15px;
 	}
 </style>
+{% endblock %}
 
-<body>
-	<div class="container-fluid">
-		<div class="text-center">
-			<form method="POST" action="/api/v1/submitted/">
-			{% csrf_token %}
-			<div style="margin: 30px;">
-				<textarea name="textfield" placeholder="Enter the Document(s)" cols="50" rows="10"></textarea>
-			</div>
-			<button type="submit">Upload text</button>
-			</form>
-			<div style="margin-top: 50px;">
-				<input type=button value="Previous Page" onClick="javascript:history.go(-1);">
-			</div>
+{% block content %}
+
+<div class="container-fluid vertical-center">
+	<div class="text-center">
+		<form method="POST" action="/api/v1/save/">
+		{% csrf_token %}
+		<div class="form-group">
+			<textarea name="textfield" placeholder="Enter the Document(s)" cols="50" rows="10" class="form-control"></textarea>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-outline-success float-left" type="submit">Upload text</button>
+			<input class="btn btn-outline-danger float-right" type=button value="Back" onClick="javascript:history.go(-1);">
+		</div>
+		</form>
+		<div style="margin-top: 50px;">
+			
 		</div>
 	</div>
-</body>
+</div>
+
+{% endblock %}

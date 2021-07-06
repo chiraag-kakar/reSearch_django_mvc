@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<title>reSearch</title>
-</head>
-<style>
-body 
-{
- background-color: rgb(130, 194, 175);
-}
-a
-{
-	text-decoration: none;
-	color: black;
-}
-</style>
-<body>
-	<div class="container-fluid">
+{% extends 'research/layout.html' %}
+
+{% block content %}
+
+<div class="container-fluid vertical-center">
 	<div class="text-center">
 		<h1>Welcome User to "reSearch"</h1>
 		<div style="margin: 50px;">
@@ -26,15 +11,8 @@ a
 			<a href= '/api/v1/search/'><button type="button" class="btn btn-outline-secondary">Search</button></a>
 			<a href= '/api/v1/clear/'><button type="button" class="btn btn-outline-success">Clear</button></a>
 		</div>
-	<div>
-	<ul style="list-style-type:none;">
-		<li><strong>Indexing : </strong></li>
-		<li><strong>Searching : </strong></li>
-		<li><strong>Clear Stored Records : </strong></li>
-	</ul>
 	</div>
-	</div>
-	</div>
-</body>
-</html>
+</div>
+
+{% endblock %}
 

@@ -1,16 +1,26 @@
+{% extends 'research/layout.html' %}
+
+
+{% block style %}
 <style>
 	body {
-    background-color: rgb(130, 194, 175);
 	text-align: center;
 	margin: 20px;
 	}
 </style>
-<body>
-	<form method="POST" action="/api/v1/results/">
-	{% csrf_token %}
-		<input placeholder = "Enter a word to search for" type="text" name="textfield">
+{% endblock %}
 
-		<button type="submit">Upload text</button>
-	</form>
-	<input type=button value="Previous Page" onClick="javascript:history.go(-1);">
-</body>
+{% block content %}
+	<div class="container-fluid vertical-center">
+		<form method="POST" action="/api/v1/show/">
+			{% csrf_token %}
+			<div class="form-group">
+				<input class="form-control" placeholder="Enter a word......" type="text" name="textfield">
+			</div>
+			<div class="form-group">
+				<button class="btn btn-outline-success btn-sm float-left" type="submit">Search</button>
+				<input class="btn btn-outline-danger btn-sm float-right" type=button value="Back" onClick="javascript:history.go(-1);">
+			</div>		
+		</form>
+	</div>
+{% endblock %}

@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Deleted successfully</title>
-</head>
-<body>
+{% extends 'research/layout.html' %}
+
+
+{% block style %}
 <style>
 	body {
-	background-color: rgb(130, 194, 175);
 	text-align: center;
 	margin: 20px;
 	}
 </style>
+{% endblock %}
+
+{% block content %}
 <h1>Data is successfully cleared!</h1>
-<input type=button value="Previous Page" onClick="javascript:history.go(-1);">
-</body>
-</html>
+<input class="btn btn-outline-danger btn-sm" type=button value="Back" onClick="javascript:history.go(-1);">
+{% endblock %}
