@@ -1,0 +1,24 @@
+<style>
+	body {
+    background-color: rgb(130, 194, 175);
+	text-align: center;
+	margin: 20px;
+	}
+</style>
+
+<body>
+	<div class="container-fluid">
+		<div class="text-center">
+			<form method="POST" action="/api/v1/submitted/">
+			{% csrf_token %}
+			<div style="margin: 30px;">
+				<textarea name="textfield" placeholder="Enter the Document(s)" cols="50" rows="10"></textarea>
+			</div>
+			<button type="submit">Upload text</button>
+			</form>
+			<div style="margin-top: 50px;">
+				<input type=button value="Previous Page" onClick="javascript:history.go(-1);">
+			</div>
+		</div>
+	</div>
+</body>

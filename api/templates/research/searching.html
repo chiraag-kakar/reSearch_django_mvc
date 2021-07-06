@@ -1,0 +1,16 @@
+<style>
+	body {
+    background-color: rgb(130, 194, 175);
+	text-align: center;
+	margin: 20px;
+	}
+</style>
+<body>
+	<form method="POST" action="/api/v1/results/">
+	{% csrf_token %}
+		<input placeholder = "Enter a word to search for" type="text" name="textfield">
+
+		<button type="submit">Upload text</button>
+	</form>
+	<input type=button value="Previous Page" onClick="javascript:history.go(-1);">
+</body>
